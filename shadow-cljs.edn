@@ -1,0 +1,26 @@
+{:source-paths ["src"]
+
+ :dependencies [[binaryage/devtools "0.9.10"]
+                [proto-repl "0.3.1"]
+                [metasoarous/oz "1.6.0-alpha2"
+                 :exclusions [cljsjs/vega cljsjs/vega-lite cljsjs/vega-embed cljsjs/vega-tooltip
+                              cljsjs/react cljsjs/react-dom cljsjs/react-dom-server cljsjs/create-react-class]]
+                [reagent "0.8.1"
+                 :exclusions [cljsjs/react cljsjs/react-dom cljsjs/react-dom-server cljsjs/create-react-class]]
+                [org.clojure/data.json "1.0.0"]
+                ]
+
+ :nrepl        {:port 3333}
+
+ :builds
+ {:app {:target :browser
+        :output-dir "public/js"
+        :asset-path "/js"
+        :compiler-options {:output-feature-set :es6}
+        :modules
+        {:main
+         {:entries [app.core]}}
+
+        :devtools
+        {:http-root   "public"
+         :http-port   3000}}}}
